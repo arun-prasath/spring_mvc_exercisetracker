@@ -4,8 +4,10 @@
 package com.mysite.fitnesstracker.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.mysite.fitnesstracker.model.Exercise;
 
 /**
  * @author Arun J
@@ -15,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MinutesController {
 
 	@RequestMapping("/addMinutes")
-	public String addMinutes(Model model) {
-		model.addAttribute("miutesMessage", "Add Minutes");
+	public String addMinutes(@ModelAttribute("exercise") Exercise exercise) {
+		exercise.setMinutes(5);
 		return "minutes";
 	}
 }
