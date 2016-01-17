@@ -6,16 +6,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Add goal</title>
+<style type="text/css">
+.error {
+	color: red;
+}
+
+.errorBlock {
+	color: red;
+	background-color: #ffa4a4;
+	padding: 3px;
+	border: 3px solid #c31515;
+	margin: 8px;
+}
+</style>
 </head>
 <body>
 <form:form modelAttribute="goal" >
+	<form:errors path="*" cssClass="errorBlock" />
 	<table>
 		<tr>
 			<td>Goal</td>
-			<td><form:input path="minutes"/>
+			<td><form:input path="minutes" cssErrorClass="error" /></td>
+			<td><form:errors path="minutes" cssClass="error" /></td>
 		</tr>
 		<tr>
-			<td colspan="2"><form:button>Enter goal</form:button></td>
+			<td colspan="3"><form:button>Enter goal</form:button></td>
 		</tr>
 	</table>
 </form:form>
