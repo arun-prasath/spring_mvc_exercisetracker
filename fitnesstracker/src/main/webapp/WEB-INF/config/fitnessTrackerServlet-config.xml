@@ -11,6 +11,12 @@
 	<mvc:annotation-driven />
 	<context:component-scan base-package="com.mysite.fitnesstracker.controller" />
 	
+	<mvc:interceptors>
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" p:paramName="language" />
+	</mvc:interceptors>
+	
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" p:defaultLocale="en" />
+	
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basename="messages" />
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" 

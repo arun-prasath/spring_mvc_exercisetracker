@@ -10,6 +10,7 @@
 </head>
 <body>
 <form:form commandName="exercise" >
+	Language: <a href="?language=en">English</a> | <a href="?language=es">Spanish</a>
 	<table>
 		<tr>
 			<td><spring:message code="goal.text" /></td>
