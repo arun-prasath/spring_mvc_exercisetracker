@@ -6,6 +6,7 @@ package com.mysite.fitnesstracker.controller;
 import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mysite.fitnesstracker.model.Goal;
+import com.mysite.fitnesstracker.service.GoalService;
 
 /**
  * @author Arun J
@@ -26,6 +28,9 @@ import com.mysite.fitnesstracker.model.Goal;
 public class GoalController {
 	
 	private static final Logger logger = Logger.getLogger(GoalController.class);
+	
+	@Autowired
+	GoalService goalService;
 	
 	@RequestMapping(value = "addGoal", method = RequestMethod.GET)
 	public String addGoal(Model model) {
@@ -42,6 +47,8 @@ public class GoalController {
 		
 		if(result.hasErrors()) {
 			return "goal";
+		} else {
+			goalService.saveGoal(goal);
 		}
 		
 		return "redirect:addMinutes.html";
