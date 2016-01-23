@@ -14,6 +14,9 @@
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="punit" />
 		<property name="dataSource" ref="dataSource" />
+		<property name="persistenceProvider">
+			<bean class="org.hibernate.jpa.HibernatePersistenceProvider" />
+		</property>
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="showSql" value="true" />
@@ -22,8 +25,8 @@
 		
 		<property name="jpaPropertyMap">
 			<map>
-				<entry key="hibernate.dialect" value="org.hibernate.dialec.MySQL5InnoDBDialect" />
-				<entry key="hibernate.hbm2ddl.auto" value="none" />
+				<entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+				<entry key="hibernate.hbm2ddl.auto" value="create" />
 				<entry key="hibernate.format_sql" value="true" />
 			</map>
 		</property>
@@ -36,9 +39,9 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
-		<property name="driverClassName" value="com.mysql.jdbc.driver" />
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/fitnesstracker?autoReconnect=true" />
-		<property name="username" value="root" />
+		<property name="username" value="admin-user" />
 		<property name="password" value="password" />
 	</bean>
 
