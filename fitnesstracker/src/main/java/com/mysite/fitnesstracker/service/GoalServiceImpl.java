@@ -17,7 +17,6 @@ public class GoalServiceImpl implements GoalService {
 	 * @see com.mysite.fitnesstracker.service.GoalService#saveGoal(com.mysite.fitnesstracker.model.Goal)
 	 */
 	@Override
-	@Transactional
 	public Goal saveGoal(Goal goal) {
 		return goalRepository.saveGoal(goal);
 	}

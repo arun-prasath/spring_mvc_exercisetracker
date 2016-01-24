@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -49,6 +50,15 @@ public class GoalController {
 			return "goal";
 		} else {
 			goalService.saveGoal(goal);
+			try {
+				goalService.saveGoal(goal);
+			} catch (Exception e) {
+				logger.error("An exception occurred");
+				logger.error("Exception message is: " + e.getMessage());
+				ObjectError objErr = new ObjectError("ErrorObject", e.getMessage());
+				result.addError(objErr);
+				return "goal";
+			}
 		}
 		
 		return "redirect:addMinutes.html";

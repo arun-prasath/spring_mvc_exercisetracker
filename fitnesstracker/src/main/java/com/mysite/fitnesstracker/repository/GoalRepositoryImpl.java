@@ -17,12 +17,8 @@ public class GoalRepositoryImpl implements GoalRepository {
 	@Override
 	@Transactional
 	public Goal saveGoal(Goal goal) {
-		try {
-			entityManager.persist(goal);
-			entityManager.flush();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		entityManager.persist(goal);
+		entityManager.flush();
 		return goal;
 	}
 
