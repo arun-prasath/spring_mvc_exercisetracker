@@ -49,7 +49,6 @@ public class GoalController {
 		if(result.hasErrors()) {
 			return "goal";
 		} else {
-			goalService.saveGoal(goal);
 			try {
 				goalService.saveGoal(goal);
 			} catch (Exception e) {
