@@ -45,7 +45,7 @@ public class MinutesController {
 	
 	@RequestMapping(value = "/addMinutes", method = RequestMethod.POST)
 	public String addMinutes(@Valid @ModelAttribute("exercise") Exercise exercise, HttpSession session, BindingResult result) {
-		if(!result.hasErrors()) {
+		if(result.hasErrors()) {
 			return "minutes";
 		} else {
 			Goal goal = (Goal) session.getAttribute("goal");

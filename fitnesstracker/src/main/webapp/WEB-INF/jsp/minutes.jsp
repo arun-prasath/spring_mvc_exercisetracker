@@ -10,7 +10,7 @@
 </head>
 <body>
 <h2>Goal set for ${goal.minutes} minutes</h2>
-<form:form commandName="exercise" >
+<form:form commandName="exercise" method="post">
 	Language: <a href="?language=en">English</a> | <a href="?language=es">Spanish</a>
 	<table>
 		<tr>
