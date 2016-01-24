@@ -63,5 +63,11 @@ public class GoalController {
 		return "redirect:addMinutes.html";
 	}
 	
+	@RequestMapping(value = "showGoal", method = RequestMethod.GET)
+	public String showGoal(Model model) {
+		model.addAttribute("goals", goalService.findAllGoals());
+		return "showGoal";
+	}
+	
 
 }

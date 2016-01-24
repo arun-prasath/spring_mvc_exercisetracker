@@ -1,7 +1,10 @@
 package com.mysite.fitnesstracker.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +23,14 @@ public class GoalRepositoryImpl implements GoalRepository {
 		entityManager.persist(goal);
 		entityManager.flush();
 		return goal;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Goal> findAllGoals() {
+		String findGoalsQueryStr = "from Goal";
+		Query findGoalsQuery = entityManager.createQuery(findGoalsQueryStr);
+		return findGoalsQuery.getResultList();
 	}
 
 }
