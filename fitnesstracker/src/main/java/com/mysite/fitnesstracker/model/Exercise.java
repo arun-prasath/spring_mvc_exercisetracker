@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Exercise {
@@ -13,10 +14,17 @@ public class Exercise {
 	@Column(name="EXERCISE_ID")
 	private long exerciseId;
 	
+	@ManyToOne
+	private Goal goal;
+	
 	private int minutes;
 
 	public long getExerciseId() {
 		return exerciseId;
+	}
+
+	public Goal getGoal() {
+		return goal;
 	}
 
 	public int getMinutes() {
@@ -25,6 +33,10 @@ public class Exercise {
 
 	public void setExerciseId(long exerciseId) {
 		this.exerciseId = exerciseId;
+	}
+
+	public void setGoal(Goal goal) {
+		this.goal = goal;
 	}
 
 	public void setMinutes(int minutes) {

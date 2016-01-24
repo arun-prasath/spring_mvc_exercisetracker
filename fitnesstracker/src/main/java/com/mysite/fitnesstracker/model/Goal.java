@@ -3,10 +3,15 @@
  */
 package com.mysite.fitnesstracker.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Range;
@@ -28,6 +33,9 @@ public class Goal {
 	@Column(name="MINUTES")
 	@Range(min = 1, max = 120)
 	private int minutes;
+	
+	@OneToMany(mappedBy="goal", cascade=CascadeType.ALL)
+	private List<Exercise> exercise = new ArrayList<Exercise>();
 
 	public Long getGoalId() {
 		return goalId;
@@ -43,6 +51,14 @@ public class Goal {
 
 	public void setMinutes(int minutes) {
 		this.minutes = minutes;
+	}
+
+	public List<Exercise> getExercise() {
+		return exercise;
+	}
+
+	public void setExercise(List<Exercise> exercise) {
+		this.exercise = exercise;
 	}
 
 }
