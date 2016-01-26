@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.mysite.fitnesstracker.model.Goal;
+import com.mysite.fitnesstracker.model.GoalReport;
 import com.mysite.fitnesstracker.repository.GoalRepository;
 
 @Service
@@ -26,6 +26,11 @@ public class GoalServiceImpl implements GoalService {
 	@Override
 	public List<Goal> findAllGoals() {
 		return goalRepository.findAllGoals();
+	}
+	
+	@Override
+	public List<GoalReport> getGoalReports() {
+		return goalRepository.getGoalReports();
 	}
 
 }

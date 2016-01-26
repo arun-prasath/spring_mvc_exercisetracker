@@ -69,5 +69,11 @@ public class GoalController {
 		return "showGoal";
 	}
 	
+	@RequestMapping(value = "goalReports", method = RequestMethod.GET)
+	public String goalReports(Model model) {
+		model.addAttribute("goalReport", goalService.getGoalReports());
+		return "goalReports";
+	}
+	
 
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mysite.fitnesstracker.model.Goal;
+import com.mysite.fitnesstracker.model.GoalReport;
 
 @Repository
 public class GoalRepositoryImpl implements GoalRepository {
@@ -33,4 +34,11 @@ public class GoalRepositoryImpl implements GoalRepository {
 		return findGoalsQuery.getResultList();
 	}
 
+	@Override
+	public List<GoalReport> getGoalReports() {
+		String goalReportQueryStr = "select new com.mysite.fitnesstracker.model.GoalReport(e.minutes, g.minutes) "
+			 + "from Goal g, Exercise e";
+		Query goalReportQuery = entityManager.createQuery(goalReportQueryStr);
+		return goalReportQuery.getResultList();
+	}
 }
