@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,19 +27,15 @@ public class GoalRepositoryImpl implements GoalRepository {
 		return goal;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Goal> findAllGoals() {
-		String findGoalsQueryStr = "from Goal";
-		Query findGoalsQuery = entityManager.createQuery(findGoalsQueryStr);
+		TypedQuery<Goal> findGoalsQuery =  entityManager.createNamedQuery(Goal.GET_GOAL, Goal.class);
 		return findGoalsQuery.getResultList();
 	}
 
 	@Override
 	public List<GoalReport> getGoalReports() {
-		String goalReportQueryStr = "select new com.mysite.fitnesstracker.model.GoalReport(e.minutes, g.minutes) "
-			 + "from Goal g, Exercise e";
-		Query goalReportQuery = entityManager.createQuery(goalReportQueryStr);
+		TypedQuery<GoalReport> goalReportQuery =  entityManager.createNamedQuery(Goal.GET_GOAL_REPORTS, GoalReport.class);
 		return goalReportQuery.getResultList();
 	}
 }

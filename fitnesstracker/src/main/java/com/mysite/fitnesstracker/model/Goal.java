@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,7 +26,15 @@ import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name="goals")
+@NamedQueries({
+	@NamedQuery(name=Goal.GET_GOAL_REPORTS, query="select new com.mysite.fitnesstracker.model.GoalReport(e.minutes, g.minutes) "
+			 + "from Goal g, Exercise e"),
+	@NamedQuery(name=Goal.GET_GOAL, query="from Goal")
+})
 public class Goal {
+	
+	public static final String GET_GOAL_REPORTS = "getGoalReports";
+	public static final String GET_GOAL = "getGoal";
 
 	@Id
 	@GeneratedValue
