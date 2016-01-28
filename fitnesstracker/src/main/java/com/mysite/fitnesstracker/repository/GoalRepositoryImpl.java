@@ -22,8 +22,14 @@ public class GoalRepositoryImpl implements GoalRepository {
 	@Override
 	@Transactional
 	public Goal saveGoal(Goal goal) {
-		entityManager.persist(goal);
-		entityManager.flush();
+		
+		if(goal.getGoalId() == null) {
+			entityManager.persist(goal);
+			entityManager.flush();
+		} else {
+			return entityManager.merge(goal);
+		}
+		
 		return goal;
 	}
 
