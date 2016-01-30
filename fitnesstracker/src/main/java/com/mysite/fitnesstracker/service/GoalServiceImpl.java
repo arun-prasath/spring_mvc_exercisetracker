@@ -20,12 +20,12 @@ public class GoalServiceImpl implements GoalService {
 	 */
 	@Override
 	public Goal saveGoal(Goal goal) {
-		return goalRepository.saveGoal(goal);
+		return goalRepository.save(goal);
 	}
 
 	@Override
 	public List<Goal> findAllGoals() {
-		return goalRepository.findAllGoals();
+		return goalRepository.findAll();
 	}
 	
 	@Override
