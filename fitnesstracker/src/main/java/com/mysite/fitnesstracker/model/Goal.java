@@ -26,11 +26,6 @@ import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name="goals")
-@NamedQueries({
-	@NamedQuery(name=Goal.GET_GOAL_REPORTS, query="select new com.mysite.fitnesstracker.model.GoalReport(e.minutes, g.minutes) "
-			 + "from Goal g, Exercise e"),
-	@NamedQuery(name=Goal.GET_GOAL, query="from Goal")
-})
 public class Goal {
 	
 	public static final String GET_GOAL_REPORTS = "getGoalReports";
