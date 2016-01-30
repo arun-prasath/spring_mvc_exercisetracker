@@ -51,7 +51,7 @@ public class MinutesController {
 			Goal goal = (Goal) session.getAttribute("goal");
 			exercise.setGoal(goal);
 			
-			exerciseService.saveExercise(exercise);
+			exerciseService.save(exercise);
 		}
 		return "minutes";
 	}

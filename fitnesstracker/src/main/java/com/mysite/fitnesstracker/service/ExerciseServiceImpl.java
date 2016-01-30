@@ -23,7 +23,7 @@ public class ExerciseServiceImpl implements ExerciseService {
 	 * @see com.mysite.fitnesstracker.service.ExerciseService#saveExercise(com.mysite.fitnesstracker.model.Exercise)
 	 */
 	@Override
-	public Exercise saveExercise(Exercise exercise) {
-		return exerciseRepository.saveExercise(exercise);
+	public Exercise save(Exercise exercise) {
+		return exerciseRepository.save(exercise);
 	}
 }

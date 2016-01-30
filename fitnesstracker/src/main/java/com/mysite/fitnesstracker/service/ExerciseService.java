@@ -4,6 +4,6 @@ import com.mysite.fitnesstracker.model.Exercise;
 
 public interface ExerciseService {
 
-	Exercise saveExercise(Exercise exercise);
+	Exercise save(Exercise exercise);
 
 }
