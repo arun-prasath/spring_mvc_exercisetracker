@@ -15,7 +15,9 @@
 	<beans:bean id="customUserDetailsService" class="com.mysite.fitnesstracker.service.UserDetailsServiceImpl" />
 	
 	<authentication-manager>
-		<authentication-provider user-service-ref="customUserDetailsService" />
+		<authentication-provider user-service-ref="customUserDetailsService">
+			<password-encoder hash="bcrypt" />
+		</authentication-provider>
 	</authentication-manager>
 
 </beans:beans>
