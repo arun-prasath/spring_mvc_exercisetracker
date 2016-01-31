@@ -12,12 +12,10 @@
 		<intercept-url pattern="/**" access="ROLE_USER" />
 	</http>
 	
+	<beans:bean id="customUserDetailsService" class="com.mysite.fitnesstracker.service.UserDetailsServiceImpl" />
+	
 	<authentication-manager>
-		<authentication-provider>
-			<user-service>
-				<user name="arun" password="password" authorities="ROLE_USER"/>
-			</user-service>
-		</authentication-provider>
+		<authentication-provider user-service-ref="customUserDetailsService" />
 	</authentication-manager>
 
 </beans:beans>
