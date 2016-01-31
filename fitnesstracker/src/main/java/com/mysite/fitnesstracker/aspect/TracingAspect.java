@@ -7,8 +7,6 @@ import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 
 /**
  * @author Arun J
