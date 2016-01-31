@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/main/webapp/WEB-INF/config/fitnessTrackerServlet-config.xml</config>
 		<config>src/main/resources/jpaContext.xml</config>
+		<config>src/main/webapp/WEB-INF/config/fitnessTrackerSecurity-config.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
