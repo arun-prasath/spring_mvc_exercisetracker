@@ -14,7 +14,7 @@
 		<!-- This pattern should be at the very bottom -->
 		<intercept-url pattern="/**" access="ROLE_USER" />
 		
-		<form-login login-page="/login.html" />
+		<form-login login-page="/login.html" authentication-failure-url="/loginFailed.html" />
 		<http-basic/>
 	</http>
 	
