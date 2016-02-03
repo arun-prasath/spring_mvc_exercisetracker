@@ -10,6 +10,7 @@
 
 	<http auto-config="true">
 		<intercept-url pattern="/login.html" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/loginFailed.html" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		
 		<!-- This pattern should be at the very bottom -->
 		<intercept-url pattern="/**" access="ROLE_USER" />
