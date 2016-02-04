@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -47,6 +48,7 @@ public class GoalController {
 		return "goal";
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "addGoal", method = RequestMethod.POST)
 	public String submitGoal(@Valid @ModelAttribute Goal goal, BindingResult result) {
 		logger.info("Has errors: " + result.hasErrors());
