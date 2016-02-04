@@ -24,5 +24,11 @@ public class LoginController {
 		model.addAttribute("error", true);
 		return "login";
 	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(Model model) {
+		logger.info("Logging out");
+		return "logout";
+	}
 
 }
