@@ -8,5 +8,6 @@
 <sec:authorize ifAnyGranted="ROLE_ADMIN">
 	<a href="#">Edit Goal</a>
 </sec:authorize>
+<a href="j_spring_security_logout">Logout</a>
 </body>
 </html>
