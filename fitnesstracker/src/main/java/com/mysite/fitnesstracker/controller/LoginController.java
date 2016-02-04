@@ -30,5 +30,11 @@ public class LoginController {
 		logger.info("Logging out");
 		return "logout";
 	}
+	
+	@RequestMapping(value = "/403", method = RequestMethod.GET)
+	public String unauthorized() {
+		logger.info("Unauthorized login");
+		return "403";
+	}
 
 }
