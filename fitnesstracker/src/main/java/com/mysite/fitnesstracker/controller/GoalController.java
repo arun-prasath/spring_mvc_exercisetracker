@@ -48,7 +48,7 @@ public class GoalController {
 		return "goal";
 	}
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@PreAuthorize("hasRole('ROLE_ADMIN') and hasPermission(#goal, 'createGoal')")
 	@RequestMapping(value = "addGoal", method = RequestMethod.POST)
 	public String submitGoal(@Valid @ModelAttribute Goal goal, BindingResult result) {
 		logger.info("Has errors: " + result.hasErrors());
