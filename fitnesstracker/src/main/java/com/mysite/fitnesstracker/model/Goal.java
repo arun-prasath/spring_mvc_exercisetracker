@@ -15,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 import org.hibernate.validator.constraints.Range;
 
 /**
@@ -24,6 +26,7 @@ import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name="goals")
+@Audited
 public class Goal {
 	
 	public static final String GET_GOAL_REPORTS = "getGoalReports";
@@ -39,6 +42,7 @@ public class Goal {
 	private int minutes;
 	
 	@OneToMany(mappedBy="goal", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@NotAudited
 	private List<Exercise> exercise = new ArrayList<Exercise>();
 
 	public Long getGoalId() {
