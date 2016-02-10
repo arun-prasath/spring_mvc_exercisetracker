@@ -42,7 +42,6 @@ public class Goal {
 	private int minutes;
 	
 	@OneToMany(mappedBy="goal", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	@NotAudited
 	private List<Exercise> exercise = new ArrayList<Exercise>();
 
 	public Long getGoalId() {
